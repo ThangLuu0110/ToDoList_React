@@ -18,13 +18,15 @@ function ToDo( props ){
     
     
     return(
-        <li key={props.index} id={props.index}>
-            <span className={`${props.data.isCompleted ? styles.completed : ''}`}
+        <li key={`key_${props.index}`} className={styles.todo}>
+            <span className={`${props.data.isCompleted ? styles.completed : ''} ${styles.todo__text}`}
                     onClick={handleComplete}        
             >
                 {props.data.name}
             </span>
-            <button onClick={props.handleDelete}>
+            <button onClick={props.handleDelete}
+                    className={styles.todo__button}
+            >
                 Xóa
             </button>
         </li>

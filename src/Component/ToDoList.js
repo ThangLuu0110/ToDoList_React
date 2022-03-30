@@ -11,34 +11,36 @@ function ToDoList(){
         setInputValue(todoInput)
     }
     
-    const handleSaveInput = () => {
+    const handleSaveInput = (e) => {
         if(inputValue === ''){
             alert('Please add things to do')
         }
         else{
             setDataValue((prev) => {
                 const newList = [...prev, {
-                    name: inputValue,
-                    isCompleted: false,
+                name: inputValue,
+                isCompleted: false,
                 }];
-                localStorage.setItem("todos", JSON.stringify(newList));
-                return newList;
-            });
+            localStorage.setItem("todos", JSON.stringify(newList));
+            return newList;
+            })
+
         }
         setInputValue('')
     }
     
     const handleDelete = (e) => {
-        setDataValue((prev) => {
-            const newDeleteList =  dataValue.splice(e.target.parentElement.id,1);
-            localStorage.setItem("todos", JSON.stringify(newDeleteList));
-            return newDeleteList;
-        });
+        console.log([e.target]);
     }
 
     return(
         <div>
-            <Input handleChange={handleChangeInput} inputValue={inputValue} handleSave={handleSaveInput} />
+            <Input  
+                handleChange={handleChangeInput} 
+                inputValue={inputValue} 
+                handleSave={handleSaveInput}
+                dataValue={dataValue}
+            />
             <ul className={styles.todo__list}>
                 {dataValue.map((data,index) => (
                     <ToDo data={data} index={index} dataValue={dataValue} handleDelete={handleDelete}/>

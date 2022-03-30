@@ -7,8 +7,10 @@ function Input( props ){
         props.handleChange(e.target.value)
     }
 
+    console.log(props.dataValue.length);
+
     return(
-    <div className={styles.wrapper}>
+    <div className={`${styles.wrapper} ${props.dataValue.length > 0 ? styles.value_filled: ''}`}>
         <input  value={props.inputValue} 
                 type="text"
                 placeholder="Add things to do..." 
