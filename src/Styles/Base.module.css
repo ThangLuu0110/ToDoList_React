@@ -1,0 +1,31 @@
+:root{
+    --background-color: #18191a;
+    --item-color: #242526;
+    --input-color: #3a3b3c;
+    --text-color: #e4e6eb;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+button{
+    border: none;
+    cursor: pointer;
+}
+html{
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+.wrapper{
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--background-color);
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
