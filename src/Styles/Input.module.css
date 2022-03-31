@@ -5,7 +5,8 @@
     display: flex;
     align-items: center;
     padding: 0 10px 0 10px;
-    border-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 .wrapper.value_filled{
     border-bottom-left-radius: 0px;

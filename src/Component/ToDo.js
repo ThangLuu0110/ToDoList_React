@@ -7,27 +7,29 @@ function ToDo( props ){
         e.target.classList.toggle(`${styles.completed}`)
        
         if(e.target.classList.contains(`${styles.completed}`)){
-            props.dataValue[props.index].isCompleted = true;
+            props.dataValue[props.name].isCompleted = true;
         }
         else{
-            props.dataValue[props.index].isCompleted = false;
+            props.dataValue[props.name].isCompleted = false;
         }
         localStorage.setItem("todos", JSON.stringify(props.dataValue));
     }
 
-    
-    
+    const handleDelete = () => {
+        props.handleDeleteItem(props.data.name);
+    }
+
     return(
-        <li key={`key_${props.index}`} className={styles.todo}>
+        <li  className={styles.todo} key={`item_${props.index}`}>
             <span className={`${props.data.isCompleted ? styles.completed : ''} ${styles.todo__text}`}
                     onClick={handleComplete}        
             >
                 {props.data.name}
             </span>
-            <button onClick={props.handleDelete}
+            <button onClick={handleDelete}
                     className={styles.todo__button}
             >
-                Xóa
+                Delete
             </button>
         </li>
     )

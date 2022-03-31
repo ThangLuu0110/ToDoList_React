@@ -14,9 +14,8 @@
     color: var(--text-color);
     background-color: var(--item-color);
 }
-.todo:last-child{
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+.todo.remove{
+    display: none;
 }
 .todo__text{
     cursor: pointer;
@@ -24,6 +23,6 @@
 .todo__button{
     width: 40px;
     height: 20px;
-    border-radius: 5px;
+    border-radius: 2px;
     font-size: 1.2rem;
 }
