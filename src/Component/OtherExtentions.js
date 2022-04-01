@@ -7,7 +7,7 @@ function OtherExtentions( props ){
     const incompletedButton = useRef(null);
 
     useEffect(() => {
-        if(props.number == JSON.parse(localStorage.getItem("todos")).length){
+        if(props.number === JSON.parse(localStorage.getItem("todos")).length){
             allButton.current.classList.add(`${styles.clicked}`)
             completedButton.current.classList.remove(`${styles.clicked}`)
             incompletedButton.current.classList.remove(`${styles.clicked}`)
