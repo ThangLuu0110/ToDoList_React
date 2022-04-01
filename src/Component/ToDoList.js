@@ -27,7 +27,7 @@ function ToDoList(){
                 alert('It is already in the list')
             }
             else{
-                const newList = [...dataValue,{
+                const newList = [...JSON.parse(localStorage.getItem("todos")),{
                 name: inputValue,
                 isCompleted: false,
                 }]
@@ -45,6 +45,7 @@ function ToDoList(){
         setNoData(newListTodos.length)
         setDataValue(newListTodos)
         localStorage.setItem("todos", JSON.stringify(newListTodos));
+
     }
 
     const showAllToDo = () => {
@@ -81,7 +82,7 @@ function ToDoList(){
                 {dataValue.map((data,index) => (
                     <ToDo 
                         data={data} 
-                        name={data.name} 
+                        index={index} 
                         dataValue={dataValue} 
                         handleDeleteItem={handleDeleteItem}
                         key={`key_${index}`}

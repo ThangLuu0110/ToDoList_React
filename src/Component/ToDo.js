@@ -4,15 +4,18 @@ import styles from '../Styles/ToDo.module.css'
 function ToDo( props ){
 
     const handleComplete = (e) => {
+        const checkList = JSON.parse(localStorage.getItem("todos"));
         e.target.classList.toggle(`${styles.completed}`)
        
         if(e.target.classList.contains(`${styles.completed}`)){
-            props.dataValue[props.name].isCompleted = true;
+            checkList[props.index].isCompleted = true;
         }
         else{
-            props.dataValue[props.name].isCompleted = false;
+            checkList[props.index].isCompleted = false;
         }
-        localStorage.setItem("todos", JSON.stringify(props.dataValue));
+        localStorage.setItem("todos", JSON.stringify(checkList));
+
+        console.log(checkList);
     }
 
     const handleDelete = () => {

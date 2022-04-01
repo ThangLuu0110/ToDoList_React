@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import styles from '../Styles/OtherExtentions.module.css';
 
 function OtherExtentions( props ){
@@ -6,12 +6,14 @@ function OtherExtentions( props ){
     const completedButton = useRef(null);
     const incompletedButton = useRef(null);
 
-    if(props.number === JSON.parse(localStorage.getItem("todos"))){
-        allButton.current.classList.add(`${styles.clicked}`)
-        completedButton.current.classList.remove(`${styles.clicked}`)
-        incompletedButton.current.classList.remove(`${styles.clicked}`)
-    }
-    
+    useEffect(() => {
+        if(props.number == JSON.parse(localStorage.getItem("todos")).length){
+            allButton.current.classList.add(`${styles.clicked}`)
+            completedButton.current.classList.remove(`${styles.clicked}`)
+            incompletedButton.current.classList.remove(`${styles.clicked}`)
+        }
+    }, [props.number])
+
     const showAll = () => {
         props.showAll()
         allButton.current.classList.add(`${styles.clicked}`)
